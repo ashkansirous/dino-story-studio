@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Text effects</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&family=Andika:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFF6EE}
+a{color:#5B57E8}a:hover{color:#3f3bc4}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:0 18px;border-radius:999px;font:800 15px Nunito,sans-serif;text-decoration:none;border:0;cursor:pointer}
+.card{background:#fff;border:1px solid #F1DCCB;border-radius:18px}
+.step{padding:8px 14px;border-radius:999px;font-weight:800;font-size:14px;text-decoration:none;color:#5d5672}
+.rule{display:flex;align-items:center;gap:12px;min-height:52px;padding:6px 0;border-top:1px solid #F1EADF}
+@media (max-width:899px){nav[aria-label="Book steps"] .step{display:none}nav[aria-label="Book steps"] .step.cur,nav[aria-label="Book steps"] .step.prev{display:inline-flex}nav[aria-label="Book steps"]{margin-left:0!important;width:100%}.prow{grid-template-columns:1fr 1fr 44px!important}.prow>:nth-child(1){grid-column:1;grid-row:1}.prow>:nth-child(2){grid-column:2;grid-row:1}.prow>:nth-child(3){grid-column:1;grid-row:2}.prow>:nth-child(4){grid-column:2;grid-row:2}.prow>:nth-child(5){grid-column:3;grid-row:1/span 2;align-self:center}.phead{display:none!important}}
+@media (max-width:699px){.app{height:auto!important;overflow:visible!important}.split{flex-direction:column!important}.pane{overflow:visible!important;flex-basis:auto!important}}
+@media (min-width:700px) and (max-width:1099px){.cols{flex-wrap:nowrap!important}.cols>main,.split>main{flex:3 1 0!important;min-width:0}.cols>aside,.split>aside{flex:2 1 0!important;min-width:0}.cols2{flex-wrap:nowrap!important}.cols2>main{flex:3 1 0!important}.cols2>aside{flex:2 1 0!important}}
+@media (max-width:599px){h1{font-size:26px!important}.btn{min-height:44px}}
+textarea{field-sizing:content}.ttl{flex:1 1 220px;min-width:0}.rotate{display:none}
+@media (max-width:599px) and (orientation:portrait){.rotate{display:flex;position:fixed;inset:0;z-index:100;background:#FFF6EE;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:32px;text-align:center}}
+@media (max-height:520px) and (orientation:landscape){.app{height:100vh!important;min-height:0!important;display:flex!important;flex-direction:column!important;overflow:hidden!important}.hdr{flex-shrink:0;flex-wrap:nowrap!important;padding:6px 16px!important;gap:10px!important}.hdr svg{width:28px;height:28px}.ttl{flex:1 1 0}.ttl>div:first-child{font-size:16px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sub{display:none}nav[aria-label="Book steps"]{width:auto!important;flex-shrink:0;flex-wrap:nowrap!important;margin-left:auto!important}nav[aria-label="Book steps"] .step{padding:6px 12px}
+.cols,.split{flex:1;min-height:0;flex-wrap:nowrap!important;flex-direction:row!important;align-items:stretch!important;padding:10px 16px 0!important;gap:16px!important;max-width:none!important;width:100%;box-sizing:border-box}.cols>main,.cols>aside,.split>main,.split>aside{overflow-y:auto!important;min-height:0;padding:0 0 16px!important}.cols>main,.split>main{flex:3 1 0!important}.cols>aside,.split>aside{flex:2 1 0!important}.scroll{flex:1;min-height:0;overflow-y:auto;padding-top:12px!important;padding-bottom:16px!important;max-width:none!important;width:100%;box-sizing:border-box}.cols2{flex-wrap:nowrap!important}.cols2>main{flex:3 1 0!important}.cols2>aside{flex:2 1 0!important}.hdr span{font-size:16px!important}.hdr nav a{padding:6px 10px!important}.hdr button{width:34px!important;height:34px!important}.steplbl{display:none!important}.credpill{min-height:30px!important;font-size:13px!important;padding:0 10px!important}.mainc{padding-top:10px!important;padding-bottom:16px!important}.banner{margin-top:10px!important;padding:8px 14px!important;gap:12px!important}.banner>div>div+div{display:none}.banner svg{width:26px;height:26px}.bkart{height:110px!important}.bkgrid{margin-top:12px!important;grid-template-columns:repeat(auto-fill,minmax(180px,1fr))!important;gap:12px!important}.nbcard{display:block!important;column-count:2;column-gap:24px;padding:14px!important;margin-top:8px!important}.nbcard>*{break-inside:avoid}.nbcard>.c2{margin-top:0!important}.nbcard>.c2a{break-before:column}.nbcard span[style*="background:#FBEDE2"]{font-size:12px;padding:2px 8px!important}.bkart>div:first-child{display:none}[aria-label="Age group"]{gap:6px!important;grid-template-columns:repeat(3,minmax(0,1fr))!important}[aria-label="Age group"] button{min-height:0!important;padding:8px!important}[aria-label="Age group"] button span+span{display:none!important}[aria-label="Age group"] button span{font-size:16px!important}h1{font-size:22px!important}h1+p{display:none!important}}
+</style>
+</helmet>
+<div class="app" style="height:100vh;display:flex;flex-direction:column;overflow:hidden;font-family:Nunito,sans-serif;color:#2b2540;background:#FFF6EE">
+<div class="rotate" role="alert">
+<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="1.6" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"></rect><path d="M2 14a8 8 0 0 0 6 7"></path><path d="M2 18v-4h4"></path></svg>
+<div style="font:600 22px Fredoka,sans-serif">Turn your phone sideways</div>
+<div style="color:#5d5672;font-size:15px;max-width:280px">Making a book needs the wider screen. Everything you've done is saved.</div>
+<a href="Main.dc.html" style="font-weight:800">Back to My books</a>
+</div>
+  <header class="hdr" style="flex-shrink:0;display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:14px clamp(16px,4vw,32px);border-bottom:1px solid #F1DCCB;background:#FFFCF9">
+    <a href="Main.dc.html" aria-label="My books" style="display:flex;text-decoration:none"><img src="/_blob/39e5942290a1f288940ae460d77badc0" alt="" style="width:36px;height:36px;border-radius:8px;display:block;flex:none"></a>
+    <div class="ttl"><div style="font:600 20px Fredoka,sans-serif">The Hen Who Shared Her Bread</div><div class="sub" style="font-size:13px;color:#5d5672">Ages 4–6 · 12 pages · 8.5in square</div></div>
+    <nav aria-label="Book steps" style="display:flex;flex-wrap:wrap;gap:4px;margin-left:auto">
+      <a href="Editor.dc.html" class="step" style="color:#2E7D32">✓ Story</a>
+      <a href="Cast.dc.html" class="step" style="color:#2E7D32">✓ Cast</a>
+      <a href="Layout.dc.html" class="step" style="color:#2E7D32">✓ Size &amp; layout</a>
+      <a href="Pictures.dc.html" class="step prev" style="color:#2E7D32">✓ Pictures</a>
+      <a href="Format.dc.html" class="step cur" style="background:#2E7D32;color:#fff">5 Text effects</a>
+      <a href="CoverFront.dc.html" class="step">6 Front cover</a>
+      <a href="CoverBack.dc.html" class="step">7 Back cover</a>
+      <a href="Covers.dc.html" class="step">8 Extra pages</a>
+      <a href="Preview.dc.html" class="step">9 Preview &amp; download</a>
+    </nav>
+    <a href="BuyCredits.dc.html" class="credpill" aria-label="120 credits left. Buy more credits" style="display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 12px;border-radius:999px;background:#FFF1E4;color:#8A4A14;font-weight:800;font-size:14px;text-decoration:none;flex-shrink:0;white-space:nowrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v10M9 10h4.5a2 2 0 010 4H9"></path></svg>120 credits</a>
+  </header>
+
+  <div class="split cols" style="flex:1;min-height:0;width:100%;max-width:1300px;margin:0 auto;padding:0 clamp(16px,4vw,32px);box-sizing:border-box;display:flex;gap:28px;align-items:stretch">
+    <main class="pane" style="flex:999 1 560px;min-width:0;overflow-y:auto;padding:24px 0">
+      <h1 style="margin:0;font:600 32px Fredoka,sans-serif">Text effects</h1>
+      <p style="margin:6px 0 16px;color:#5d5672">The styler marks each word for you. Turn any effect on or off for the whole book, or tap a word to change just that one.</p>
+      <div style="display:flex;justify-content:space-between;font-size:14px;font-weight:800;color:#5d5672;margin-bottom:10px"><span>Sample page · every effect</span><span>{{onCount}} of {{total}} on</span></div>
+      <div style="background:#EFE7DA;border-radius:20px;padding:28px;display:flex;justify-content:center">
+        <div style="width:540px;max-width:100%;min-height:540px;background:#FFF6E9;border-radius:4px;box-shadow:0 8px 24px rgba(60,40,10,.18);padding:48px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;font-family:Andika,Nunito,sans-serif;color:#2B2540;text-align:center;line-height:1.35">
+          <sc-for list="{{paras}}" as="p" hint-placeholder-count="6">
+            <p style="margin:0 0 12px;font-size:20px"><sc-for list="{{p.segs}}" as="s" hint-placeholder-count="4"><span style="{{s.style}}">{{s.t}}</span></sc-for></p>
+          </sc-for>
+        </div>
+      </div>
+    </main>
+
+    <aside aria-label="Effect settings" class="pane" style="flex:1 1 380px;min-width:0;overflow-y:auto;padding:24px 4px 24px 0;display:flex;flex-direction:column;gap:16px">
+      <section class="card" style="padding:8px 18px 12px">
+        <div class="rule" style="border-top:0">
+          <div style="flex:1"><div style="font:600 18px Fredoka,sans-serif">All effects</div><div style="font-size:13px;color:#5d5672">Off gives plain text in one colour</div></div>
+          <button role="switch" aria-checked="{{allOn}}" aria-label="All effects" onClick="{{toggleAll}}" style="{{allSw}}"><span style="width:22px;height:22px;border-radius:50%;background:#fff"></span></button>
+        </div>
+        <sc-for list="{{groups}}" as="g" hint-placeholder-count="5">
+          <div style="font-size:12px;font-weight:800;letter-spacing:.04em;color:#5d5672;margin-top:12px">{{g.title}}</div>
+          <sc-for list="{{g.rules}}" as="r" hint-placeholder-count="3">
+            <div class="rule">
+              <div style="flex:1;min-width:0"><div style="font-weight:800">{{r.label}}</div><div style="font-size:13px;color:#5d5672">{{r.hint}}</div></div>
+              <button role="switch" aria-checked="{{r.on}}" aria-label="{{r.label}}" onClick="{{r.toggle}}" style="{{r.sw}}"><span style="width:22px;height:22px;border-radius:50%;background:#fff"></span></button>
+            </div>
+          </sc-for>
+        </sc-for>
+      </section>
+
+      <section class="card" style="padding:18px">
+        <h2 style="margin:0 0 4px;font:600 18px Fredoka,sans-serif">Speaker colours</h2>
+        <p style="margin:0 0 12px;font-size:13px;color:#5d5672">Picked for you from each character's sheet. Tap a swatch to change it: every choice is dark enough to read, never red, and different from the others.</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <sc-for list="{{speakers}}" as="sp" hint-placeholder-count="3">
+            <div>
+              <div style="display:flex;align-items:center;gap:10px">
+                <button onClick="{{sp.toggle}}" aria-expanded="{{sp.open}}" aria-label="Change {{sp.name}}’s colour" style="{{sp.swatch}}"></button>
+                <span style="flex:1;font-weight:800;color:{{sp.color}}">{{sp.name}}</span>
+              </div>
+              <sc-if value="{{sp.openB}}" hint-placeholder-val="{{ false }}">
+                <div role="radiogroup" aria-label="Colour for {{sp.name}}" style="display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px 54px">
+                  <sc-for list="{{sp.palette}}" as="c" hint-placeholder-count="10">
+                    <button role="radio" aria-checked="{{c.checked}}" aria-disabled="{{c.taken}}" aria-label="{{c.label}}" onClick="{{c.pick}}" style="{{c.style}}"></button>
+                  </sc-for>
+                </div>
+                <p style="margin:2px 0 0 54px;font-size:12px;color:#5d5672">Faded colours are already used by another speaker.</p>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+      <a href="CoverFront.dc.html" class="btn" style="background:#2E7D32;color:#fff;align-self:flex-start">Next: front cover →</a>
+    </aside>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":960}}'>
+class Component extends DCLogic {
+  constructor(p) {
+    super(p);
+    const keys = ['voices', 'big', 'small', 'quiet', 'colour', 'triplet', 'down', 'up', 'loud', 'qsound', 'shake', 'bounce', 'refrain', 'shout', 'stretch', 'song'];
+    const on = {}; keys.forEach((k) => { on[k] = true; });
+    this.state = { on, keys, col: { hen: '#8A4B12', cat: '#0E6B78', dog: '#2F6B34' }, open: null };
+  }
+  renderVals() {
+    const on = this.state.on;
+    const T = ['#C2410C', '#1F5FA8', '#7A3E9D'];
+    const col = this.state.col; const HEN = col.hen, CAT = col.cat, DOG = col.dog;
+    const plain = (t) => ({ t, style: '' });
+    const voice = (c) => (on.voices ? 'color:' + c + ';' : '');
+    const seg = (t, css) => ({ t, style: css });
+    const trip = (words, shape) => words.map((w, i) => {
+      let css = on.triplet ? 'font-weight:700;color:' + T[i] + ';' : '';
+      const ib = 'display:inline-block;position:relative;';
+      if (shape === 'down' && on.down) css += ib + 'top:' + [0, 3, 6][i] + 'px;';
+      if (shape === 'up' && on.up) css += ib + 'top:' + [0, -3, -6][i] + 'px;';
+      if (shape === 'loud' && on.loud) css += 'font-size:' + [20, 23, 25][i] + 'px;';
+      if (shape === 'qsound' && on.qsound) css += 'font-size:' + [20, 18, 16][i] + 'px;';
+      if (shape === 'shake' && on.shake) css += ib + 'margin:0 2px;transform:rotate(' + [-4, 3, -3][i] + 'deg);';
+      if (shape === 'bounce' && on.bounce) css += ib + 'top:' + [-3, 2, -2][i] + 'px;';
+      return [seg(w, css), plain(i < 2 ? ', ' : '')];
+    }).flat();
+    const big = on.big ? 'font-size:25px;font-weight:700;' : '';
+    const small = on.small ? 'font-size:16px;' : '';
+    const quiet = on.quiet ? 'font-size:16px;font-style:italic;color:#6E6880;' : '';
+    const colourRed = on.colour ? 'font-weight:700;color:#B3261E;' : '';
+    const refrain = on.refrain ? 'font-size:25px;font-weight:700;' : '';
+    const shout = on.shout ? 'font-size:25px;font-weight:700;' : '';
+    const stretch = on.stretch ? 'letter-spacing:.22em;' : '';
+    const songWords = ['La', 'la', 'la,', 'warm', 'bread', 'for', 'all!'];
+    const song = songWords.map((w, i) => [seg(w, voice(HEN) + (on.song ? 'font-size:23px;font-weight:700;display:inline-block;position:relative;top:' + (i % 2 ? 2 : -2) + 'px;' : '')), plain(' ')]).flat();
+    const paras = [
+      { segs: [plain('Little '), seg('Red Hen', colourRed), plain(' found a '), seg('tiny', small), plain(' grain of wheat.')] },
+      { segs: [seg('“', voice(HEN)), seg('Who will help me plant it?', voice(HEN) + refrain), seg('”', voice(HEN)), plain(' she asked '), seg('softly', quiet), plain('.')] },
+      { segs: [seg('“', voice(CAT)), seg('Not I!', voice(CAT) + shout), seg('”', voice(CAT)), plain(' said the Cat. '),seg('“', voice(DOG)), seg('Not I!', voice(DOG) + shout), seg('”', voice(DOG)), plain(' said the Dog, '), ...trip(['woof', 'woof', 'woof'], 'loud')] },
+      { segs: [plain('The rain came '), ...trip(['down', 'down', 'down'], 'down'), plain(' and '), ...trip(['splish', 'splash', 'splosh'], 'bounce'), plain(' went her boots.')] },
+      { segs: [plain('It was a '), seg('long', stretch), plain(', '), seg('slow', stretch), plain(' day. The oven went '), ...trip(['rumble', 'rumble', 'rumble'], 'shake'), plain(' and the steam went '), ...trip(['up', 'up', 'up'], 'up'), plain('.')] },
+      { segs: [plain('Out came a '), seg('great big', big), plain(' loaf. '), ...trip(['tap', 'tap', 'tap'], 'qsound'), plain(' went Hen, '), seg('quietly', quiet), plain('.')] },
+      { segs: [seg('“', voice(HEN)), ...song, seg('”', voice(HEN)), plain(' Hen sang.')] }
+    ];
+    const defs = [
+      { title: 'VOICES', rules: [['voices', 'Speaker colours', 'Quoted words in the speaker’s colour']] },
+      { title: 'WORD SIZE', rules: [['big', 'Big words', 'big, huge, giant… bigger and bold'], ['small', 'Small words', 'little, tiny… smaller'], ['quiet', 'Quiet words', 'softly, gently, whisper… small, italic, grey']] },
+      { title: 'COLOUR AND SOUNDS', rules: [['colour', 'Colour words', 'red hen, blue boat… in that colour'], ['triplet', 'Sound triplets', 'splish, splash, splosh… three colours, bold']] },
+      { title: 'WORDS THAT MOVE (ON TRIPLETS)', rules: [['down', 'Going down', 'down, fall, drop… steps down'], ['up', 'Going up', 'up, high, climb… steps up'], ['loud', 'Loud sounds', 'calls and animal noises… grow'], ['qsound', 'Quiet sounds', 'a triplet said quietly… shrinks'], ['shake', 'Shaking', 'rumble, wobble, shiver… tilts'], ['bounce', 'Bouncing', 'splash, hop, jump… bounces']] },
+      { title: 'LINES', rules: [['refrain', 'Refrains', 'a line said 2+ times in the book, big and bold'], ['shout', 'Shouts', '1–3 words ending in ! at the start of a quote'], ['stretch', 'Stretched words', 'long, slow, sleepy… spaced out'], ['song', 'Songs', 'sung lines bounce in the singer’s colour']] }
+    ];
+    const swStyle = (v) => 'width:48px;height:28px;border-radius:999px;border:0;padding:3px;display:flex;cursor:pointer;flex-shrink:0;' + (v ? 'background:#2E7D32;justify-content:flex-end' : 'background:#C9C1B3;justify-content:flex-start');
+    const groups = defs.map((g) => ({ title: g.title, rules: g.rules.map(([k, label, hint]) => ({
+      label, hint, on: String(!!on[k]), sw: swStyle(on[k]),
+      toggle: () => this.setState({ on: { ...on, [k]: !on[k] } }) })) }));
+    const keys = this.state.keys;
+    const onCount = keys.filter((k) => on[k]).length;
+    const allOn = onCount > 0;
+    const PAL = ['#1F4FA0', '#0E6B78', '#6A3A96', '#2F6B34', '#8A4B12', '#5B3A8C', '#1D5C5C', '#7A4A2A', '#3A4F8A', '#4A6B1F'];
+    const st = this.state;
+    const speakers = [['hen', 'Little Red Hen'], ['cat', 'The Cat'], ['dog', 'The Dog']].map(([id, name]) => {
+      const open = st.open === id;
+      const others = Object.keys(col).filter((k) => k !== id).map((k) => col[k]);
+      return { name, color: col[id], open: String(open), openB: open,
+        toggle: () => this.setState({ open: open ? null : id }),
+        swatch: 'width:44px;height:44px;border-radius:12px;cursor:pointer;flex-shrink:0;background:' + col[id] + ';border:' + (open ? '3px solid #2b2540' : '2px solid #F1DCCB'),
+        palette: PAL.map((c) => { const taken = others.includes(c); return {
+          checked: String(col[id] === c), taken: String(taken), label: c + (taken ? ' (used)' : ''),
+          pick: () => { if (!taken) this.setState({ col: { ...col, [id]: c }, open: null }); },
+          style: 'width:44px;height:44px;border-radius:10px;background:' + c + ';' + (col[id] === c ? 'border:3px solid #2b2540;' : 'border:2px solid #fff;box-shadow:0 0 0 1px #F1DCCB;') + (taken ? 'opacity:.25;cursor:not-allowed' : 'cursor:pointer') }; }) };
+    });
+    return {
+      speakers, paras, groups, onCount, total: keys.length, allOn: String(allOn), allSw: swStyle(allOn),
+      toggleAll: () => { const n = {}; keys.forEach((k) => { n[k] = !allOn; }); this.setState({ on: n }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

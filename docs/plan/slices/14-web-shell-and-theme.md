@@ -1,0 +1,67 @@
+### Slice 14 — The web shell: theme, header, step bar, credit pill, Buy credits pop-up and the responsive rules
+
+*Planned.*
+
+**Touches:** `web/` (new: scaffold, `web/src/theme/`, `web/src/shell/`, `web/src/api/`), `web/e2e/` (new), `CLAUDE.md`
+
+**Why.** Owner brief (2026-11-27): "Build shared pieces first: AppHeader, StepBar, CreditPill, CostButton, BuyCreditsModal, PageShell, and the theme tokens. Then build the pages in the order above, one slice at a time."
+Every page slice (3, 5, 6, 7, 8, 9, 10, 11, 15, 16, 17, 18) builds on these pieces, so they come first and once.
+Source: `docs/design/README.md`, `docs/design/app/Main.dc.html` (header, My books), `docs/design/app/Editor.dc.html` (book header, step bar, responsive CSS), `docs/design/app/BuyCredits.dc.html`, `docs/design/brand/Main.dc.html` (direction A).
+
+**Decisions (owner, 2026-11-27)**
+- Brand is direction A, "Match the Dino app". Sign-in picture is picture 6 (`docs/design/assets/signin-family.jpg`). Logo is `docs/design/assets/logoA.png`.
+- The brief's three rules for the front end: "Use mock data and fake API responses only. No real Claude, picture or Stripe calls yet." In the page slices the screens are built first against the mock API from this slice; wiring to the real API is the second half of each slice.
+- After each page: Playwright screenshots at the five sizes below, looked at, overflow/clipping/scrollbars/overlap fixed before the next page, screenshots kept in the PR. One PR per group of pages.
+- Where the design and the plan disagree the design wins; the list is in the PR description.
+
+#### Design (App Design, Account & Payments and Brand mocks, section: shared pieces, added 2026-11-27)
+
+Source frames: the header, step bar and pill are the same in every board of `docs/design/app/`; there are 67 app boards (13 screens at desktop and at four device sizes, plus the pop-up). The mock agrees with the plan except where the list at the end says so. The device boards are thin wrappers (`PhoneP-`, `PhoneL-`, `TabP-`, `TabL-`) around the desktop board; the responsive rules live in the desktop board's `@media` rules.
+
+- **Theme tokens** (one file, `web/src/theme/tokens.css`, CSS variables; nothing hard-coded in components):
+  background `--bg` #FFF6EE; card `--card` #FFFCF9 (header, option buttons, dialogs); white `--surface` #FFFFFF (content cards as drawn: `.card` is #fff with a 1px `--border`); border `--border` #F1DCCB; soft fill `--soft` #FBEDE2;
+  primary `--primary` #2E7D32, hover `--primary-hover` #1B5E20, tint `--primary-tint` #E3F5E5; text `--text` #2b2540; muted `--muted` #5d5672; secondary text `--text-2` #4a4362; links `--link` #5B57E8, hover `--link-hover` #3f3bc4;
+  accents `--dino-green` #4FC060 (art only, never a button or text), `--orange` #FFA94D, `--pink` #FF7A9C;
+  warning `--warn-bg` #FFF1E4, `--warn-text` #8A4A14 (stronger copy on a warning card #6B3A10);
+  green notice card #F1FAF2 with border #C8E8CB (the "starting credits" banner, "The illustrator will draw", "Your sheets" cards);
+  disabled button #E9E1D3 on text #5d5672 (Welcome uses #6B726F); disabled option: dashed #E3DACB border, #F7F3EC fill, opacity .6; switch off #C9C1B3; placeholder and "not decided yet" text `--placeholder` #8a839c; avatar #D9E6F2 on #23415E; preview canvas #EFE7DA; danger button #7A2E1F on white, disabled #F3DCD6 on #8E5A50; modal scrim rgba(30,42,43,.55).
+  Fonts: `--font-heading` Fredoka (500/600/700), `--font-body` Nunito (400/600/700/800), `--font-signin` Andika. The body font is one token so everything can move to Andika later in one place. The brand board says Andika for body text; the owner's brief says Nunito for body and Andika only on sign-in, and the app boards use Nunito, so Nunito it is.
+  The fonts are self-hosted from the app (Fredoka, Nunito and Andika are open-licence fonts; the licences go next to the files). The `fonts.googleapis.com` link in the boards is how the canvas loads them and is not built: the site makes no third-party font request.
+- **Shapes and sizes.** Pill buttons: `.btn` min-height 44px, radius 999px, padding 0 18-20px, Nunito 700-800 15px, icon 18px with 6-8px gap. Cards radius 18-20px. Modal radius 24px, padding 28px, width 560px, max-height 100vh minus 32px, shadow 0 20px 60px rgba(0,0,0,.3). Touch targets at least 44px (brief). Text contrast at least 4.5:1 (brief). Page shadow for the page previews: 0 8px 24px rgba(60,40,10,.18).
+- **AppHeader, app variant** (My books, `Main.dc.html`): padding 16px clamp(16px,4vw,40px), bottom border, background `--card`. Logo `logoA.png` 36px, radius 8px, then "Dino Story Studio" in Fredoka 700 22px; a nav with one link "My books" (active: `--primary-tint` fill, #1B5E20 text, radius 12px, padding 10px 14px, weight 800); a spacer; the credit pill; a 44px round avatar button (aria-label "Account", initial of the name, Nunito 800 16px) that opens the Account page.
+- **AppHeader, book variant** (every book screen): padding 14px clamp(16px,4vw,32px); logo only, 36px, as a link with aria-label "My books"; the title block (book title in Fredoka 600 20px, second line 13px `--muted`: "Ages 4–6 · 12 pages · A5 portrait", plus a "Saved" mark on the Story screen); the step bar pushed right; the credit pill last. New-book screens use "← My books" instead of the title block and show "New book" and "Ages 2–4 · 10 pages · for Mia · Change" on the Shape screen.
+- **StepBar** (`<nav aria-label="Book steps">`): nine links in this order, "1 Story", "2 Cast", "3 Size & layout", "4 Pictures", "5 Text effects", "6 Front cover", "7 Back cover", "8 Extra pages", "9 Preview & download". Each is a pill (padding 8px 14px, Nunito 800 14px). Current: filled `--primary` with white text. A step that has been completed shows "✓ Name" in `--primary` text. Others show "n Name" in `--muted`. Every step is a real link at every time: nothing is locked after "approval" (brief). A step counts as completed once its own "Next" has been used or its work exists (story written, cast approved, size chosen, pictures drawn, text effects seen, covers drawn or set, extra pages seen); the book stores which steps are done.
+  Under 900px wide the mock shows only the current and the previous step, and the bar takes the full width under the title. The brief's rule that every step can always be reopened still holds, so the compact bar ends with an "All steps" button (min 44px) that opens the full list of nine links; the mock does not draw that button.
+- **CreditPill:** link, pill, `--warn-bg` fill, `--warn-text` text, weight 800, a coin icon (circle with a "$"-like stroke) 16-18px, text "120 credits". `aria-label="120 credits left. Buy more credits"`. Book screens: min-height 36px, 14px text, padding 0 12px. My books: padding 8px 14px. In the app it opens the Buy credits pop-up over the current screen; on the Credits and Account pages (account boards) it links to the Credits page. In phone landscape: min-height 30px, 13px, padding 0 10px. The balance is on every screen except the sign-in and welcome screens.
+- **CostButton:** a button whose label ends with its cost, " · [CREDITS]" (placeholder kept; real numbers come from Slice 11's price list). Labels in the mock: "Draw Little Red Hen · [CREDITS]", "Approve and draw The Cat · [CREDITS]", "Redraw · [CREDITS]", "Change this picture · [DRAFT CREDITS]", "Draw a new picture · [DRAFT CREDITS]", "Draw the cover · [CREDITS]", "Redraw with this prompt · [CREDITS]", "Draw the back picture · [CREDITS]", "Make print-quality PDF · [CREDITS] credits". Every paid button shows its cost. When the balance is below the cost it does not start; it opens the Buy credits pop-up with the "not enough" wording.
+- **BuyCreditsModal** (opens over any screen; the screen behind stays, scrim rgba(30,42,43,.55), padding 16px): title Fredoka 600 26px, body 15px `--text-2`, close button 44px round (aria-label "Close"). Two states.
+  Out of credits: title "Not enough credits"; body "Changing this picture needs more credits than you have left. Top up and we’ll draw it straight away." (the sentence names the action that was blocked; the picture example is the mock's); chips "You have 1 credit" (warn colours) and "This needs [CREDITS] credits" (soft fill).
+  Top-up: title "Buy credits"; body "Pictures and the print-quality PDF use credits. Pick a pack."; chip "You have 120 credits".
+  Both: three packs in a radio group, grid `repeat(auto-fit,minmax(140px,1fr))`, gap 10px, radius 16px, padding 14px: name in Fredoka 600 20px ("Small", "Medium", "Large"), "[N] credits", "[PRICE]" in weight 800; selected = 2px `--primary` border on `--primary-tint`. Button "Pay with card" (full width, `--primary`, margin-top 18px). Footer 13px `--muted`, centred: "Your work is saved. After paying you come straight back here and carry on. Writing and editing text stay free." The Medium pack is selected first. Escape and the scrim click close it; focus is trapped and returns to the pill.
+- **PageShell:** the page frame. Screens come in two layouts: "cols" (a left panel and a main preview: Size & layout, Pictures, Text effects, Cover screens, Extra pages, Preview) and "split" (a main column and a side pane: Story editor with chat, Shape your story, Cast progress). Max width 1240px, padding 28px clamp(16px,4vw,32px) 48px, gap 28px.
+- **Responsive rules (brief and `@media` rules in the boards).**
+  - Desktop 1280 and wider; tablet landscape 1180×820.
+  - Tablet portrait 820×1180: side panels stay side by side (main flex 3, side flex 2); panes stack only below 700px wide.
+  - Under 700px wide: one column, the page scrolls.
+  - Phone portrait 390×844: only My books works. Every book screen (New book, Who it's for, Shape your story, Story, Cast, Size & layout, Pictures, Text effects, Front cover, Back cover, Extra pages, Preview) shows a full-screen notice (shown when max-width 599px and portrait; fixed, `--bg`, centred, z-index 100): an icon, "Turn your phone sideways", "Making a book needs the wider screen. Everything you've done is saved.", and a link "Back to My books". The account pages (sign-in, welcome, credits, account, delete) and the Buy credits pop-up work in phone portrait.
+  - Phone landscape 844×390 (`max-height:520px` and landscape): the app fills the viewport height and does not scroll as a whole; compact header (padding 6px 16px, logo 28px, title 16px on one line with an ellipsis, second line hidden, step bar padded 6px 12px and not wrapping); content first; the two panes sit side by side (flex 3 and 2) and each scrolls on its own; h1 22px, the lead paragraph under h1 hidden; the step labels hidden. Long option lists scroll inside their pane so the page preview stays visible.
+  - Text areas grow with their content (`field-sizing: content`, with a small JS fallback for browsers without it) and never show their own scrollbar.
+- **Mock API** (`web/src/api/`): one typed client interface per feature; a mock implementation with the sample data from the boards (the books, the Hen story, the cast, three credit packs) is the default until each slice's real API exists. The real client is switched on per slice.
+- **Not drawn:** the 404 and error pages, the app's loading skeletons, toast messages and the keyboard focus ring. They follow the tokens above: focus ring 3px `--primary` outline, loading states per the global rule (any wait over 500 ms shows what it waits for, with Cancel where possible). The sample numbers in the boards (120 credits, 12 pages, "Ash") are canvas data.
+
+**Work**
+- [ ] Scaffold `web/` (React + TypeScript + Vite, Vitest, Playwright). This moves out of Slice 3's layout task; `api/` and `worker/` stay there. Load `stack-conventions`, `scaffold-react-app` and `device-test-pipeline` first.
+- [ ] `web/src/theme/`: tokens file, self-hosted fonts with licences, the single body-font token, the global CSS (buttons, cards, textarea growth).
+- [ ] `web/src/shell/`: AppHeader (both variants), StepBar (with the compact "All steps" list), CreditPill, CostButton, BuyCreditsModal, PageShell (cols and split), RotateNotice, and the small parts the boards repeat: option cards (radio group), status tag, switch, avatar.
+- [ ] Router with every route: `/signin`, `/welcome`, `/books`, `/books/new`, `/books/new/audience`, `/books/:id/shape`, `/books/:id/story`, `/books/:id/cast`, `/books/:id/layout`, `/books/:id/pictures`, `/books/:id/text-effects`, `/books/:id/cover/front`, `/books/:id/cover/back`, `/books/:id/extras`, `/books/:id/preview`, `/credits`, `/account`, `/account/delete`. The Buy credits pop-up is state, not a route; it opens over whichever route is current.
+- [ ] Mock API layer and the sample data.
+- [ ] Playwright screenshot script: every route at 390×844, 844×390, 820×1180, 1180×820 and 1280×960; a check that no page has a horizontal scrollbar, no text area its own scrollbar, and every control is at least 44px (30px for the phone-landscape pill as drawn).
+- [ ] Accessibility checks: real buttons, links and labels, contrast 4.5:1 (axe in the Playwright run).
+
+**Verification**
+- The sample boards open at the five sizes with no overflow; the step bar, credit pill and Buy credits pop-up behave as drawn at each size.
+- `npm test` and the Playwright flow pass in CI.
+
+**Plan changed to match the mock (2026-11-27):**
+- Slice 3's `web/` scaffold moved here (the mock: "Build shared pieces first").
+- Brand, fonts and tokens are the owner's brief and the direction A board; the plan had none.

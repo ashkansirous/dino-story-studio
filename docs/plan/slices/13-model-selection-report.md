@@ -1,6 +1,6 @@
 ### Slice 13 — Model choice for every agent, measured, and a cost per book
 
-*Planned.* **Starts after:** Slices 5, 6, 8, 10 and 12.
+*Planned.* **Starts after:** Slices 5, 6, 8, 10, 12, 16 and 18 (16 and 18 are the story helper and the cast agent and sheet artist that the design adds; Slices 8 and 11 add the picture-chat agent and the credit prices it feeds).
 
 **Touches:** `evals/`, `evals/README.md`, `api/src/studio/config/models.py` (new), `docs/plan/notes/` (new)
 

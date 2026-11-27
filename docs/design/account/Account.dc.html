@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Account</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFF6EE}
+a{color:#5B57E8}a:hover{color:#3f3bc4}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:0 18px;border-radius:999px;font:800 15px Nunito,sans-serif;text-decoration:none;border:0;cursor:pointer}
+.card{background:#fff;border:1px solid #F1DCCB;border-radius:18px;padding:22px}
+.nav a{padding:8px 12px;border-radius:12px;font-weight:700;text-decoration:none;color:#4a4362}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:12px 0;border-top:1px solid #F1EADF}
+.mark{width:28px;height:28px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;font:800 12px Nunito,sans-serif;flex-shrink:0}
+@media (max-height:520px){.hdr{padding:6px 16px!important}.wrap{padding-top:12px!important}h1{font-size:22px!important}}
+@media (max-width:599px){.hdr .nav{order:3;width:100%;margin-left:0!important}.hdr{gap:8px!important}}
+@media (max-height:520px) and (orientation:landscape){.hdr{padding:6px 16px!important;gap:10px!important;flex-wrap:nowrap!important}.hdr svg{width:28px;height:28px}.hdr span[style*="font:700 20px"]{font-size:16px!important}.hdr .nav{order:0!important;width:auto!important;margin-left:8px!important}.nav a{padding:6px 10px!important;font-size:14px}.hdr>span,.hdr>a:last-child{min-height:30px!important;font-size:13px!important}.wrap{display:block!important;column-count:2;column-gap:14px;max-width:none!important;padding:10px 16px 16px!important}.wrap>*{break-inside:avoid;margin-bottom:14px}.wrap>h1{display:none!important}.card{padding:14px!important}.card h2{font-size:17px!important}}
+</style>
+</helmet>
+<div style="min-height:100vh;font-family:Nunito,sans-serif;color:#2b2540;background:#FFF6EE">
+  <header class="hdr" style="display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:14px clamp(16px,4vw,40px);border-bottom:1px solid #F1DCCB;background:#FFFCF9">
+    <a href="#" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#2b2540"><img src="/_blob/add6022ee0364e9dfc71e34e1154fb31" alt="" style="width:34px;height:34px;border-radius:8px;display:block;flex:none"><span style="font:700 20px Fredoka,sans-serif">Dino Story Studio</span></a>
+    <nav class="nav" aria-label="Main" style="display:flex;gap:4px;margin-left:12px"><a href="#">My books</a><a href="Credits.dc.html">Credits</a><a href="Account.dc.html" style="background:#E3F5E5;color:#1B5E20">Account</a></nav>
+    <div style="flex:1"></div>
+    <a href="Credits.dc.html" style="display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 12px;border-radius:999px;background:#FFF1E4;color:#8A4A14;font-weight:800;font-size:14px;text-decoration:none">120 credits</a>
+  </header>
+
+  <main class="wrap" style="max-width:820px;margin:0 auto;padding:32px clamp(16px,4vw,40px) 48px;display:flex;flex-direction:column;gap:18px">
+    <h1 style="margin:0;font:600 34px Fredoka,sans-serif">Account</h1>
+
+    <section class="card">
+      <h2 style="margin:0 0 14px;font:600 20px Fredoka,sans-serif">You</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:16px">
+        <div style="flex:1 1 240px"><label for="nm" style="display:block;font-size:13px;font-weight:800;color:#5d5672;margin-bottom:6px">Name</label><input id="nm" value="Ash" style="width:100%;box-sizing:border-box;min-height:44px;border:2px solid #F1DCCB;border-radius:12px;padding:0 12px;font:400 15px Nunito,sans-serif;background:#FFFCF9"></div>
+        <div style="flex:1 1 240px"><span style="display:block;font-size:13px;font-weight:800;color:#5d5672;margin-bottom:6px">Email</span><div style="min-height:44px;display:flex;align-items:center;font-size:15px">[EMAIL] <span style="margin-left:8px;font-size:12px;color:#5d5672">from Google</span></div></div>
+      </div>
+      <label style="display:flex;gap:12px;align-items:center;min-height:44px;margin-top:10px;font-size:15px;cursor:pointer"><input type="checkbox" style="width:22px;height:22px;accent-color:#2E7D32">Email me now and then about new features</label>
+    </section>
+
+    <section class="card">
+      <h2 style="margin:0 0 4px;font:600 20px Fredoka,sans-serif">How you sign in</h2>
+      <p style="margin:0 0 6px;font-size:14px;color:#5d5672">Link more than one, so you can still get in if you lose access to one.</p>
+      <div class="row"><span class="mark" style="border:1px solid #DADCE0;color:#5d5672">G</span><span style="flex:1;font-weight:800">Google</span><span style="font-size:13px;font-weight:800;padding:3px 10px;border-radius:999px;background:#E3F5E5;color:#1B5E20">Linked</span></div>
+      <div class="row"><span class="mark" style="background:#000;color:#fff">A</span><span style="flex:1;font-weight:800">Apple</span><button class="btn" style="background:#FBEDE2;color:#2b2540">Link</button></div>
+      <div class="row"><span class="mark" style="background:#1877F2;color:#fff">f</span><span style="flex:1;font-weight:800">Facebook</span><button class="btn" style="background:#FBEDE2;color:#2b2540">Link</button></div>
+    </section>
+
+    <section class="card">
+      <h2 style="margin:0 0 4px;font:600 20px Fredoka,sans-serif">Your data</h2>
+      <p style="margin:0 0 12px;font-size:14px;color:#5d5672;line-height:1.5">We keep your books (story text, pictures, PDFs) and the names you gave the people in them, so you can come back and keep working. They're only used to make your books.</p>
+      <button class="btn" style="background:#FBEDE2;color:#2b2540">Download all my data</button>
+    </section>
+
+    <section class="card" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+      <div style="flex:1 1 260px"><h2 style="margin:0;font:600 20px Fredoka,sans-serif">Sign out</h2><p style="margin:4px 0 0;font-size:14px;color:#5d5672">On this device.</p></div>
+      <button class="btn" style="background:#FBEDE2;color:#2b2540">Sign out</button>
+    </section>
+
+    <section class="card" style="border-color:#E8B4A8;display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+      <div style="flex:1 1 260px"><h2 style="margin:0;font:600 20px Fredoka,sans-serif;color:#7A2E1F">Delete account</h2><p style="margin:4px 0 0;font-size:14px;color:#5d5672">Removes your account, every book and all pictures for good.</p></div>
+      <a href="DeleteAccount.dc.html" class="btn" style="background:#fff;color:#7A2E1F;border:2px solid #C9776A">Delete account…</a>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1100}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

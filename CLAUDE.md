@@ -11,3 +11,4 @@ Web app that turns a parent's story idea into an illustrated, print-ready pictur
 - Eval, test and CI calls never count as real users in analytics or usage counts.
 - Releases happen only through the GitHub Actions workflow on merge to `main`; never `wrangler deploy` from a shell.
 - Stories and picture prompts pass the safety check before they are used.
+- Every screen follows the approved designs in `docs/design/` (see its README): read layout, copy, colours and sizes from there, never guess them and never re-fetch them from Claude. Theme values live once, as CSS variables in one theme file.

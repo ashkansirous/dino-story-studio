@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Delete account</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#5B57E8}a:hover{color:#3f3bc4}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:48px;padding:0 20px;border-radius:999px;font:800 15px Nunito,sans-serif;text-decoration:none;border:0}
+li{margin:6px 0}
+@media (max-height:520px) and (orientation:landscape){.dsheet{width:800px!important;padding:16px 22px!important;column-count:2;column-gap:28px;max-height:calc(100vh - 20px)!important}.dsheet>*{break-inside:avoid}.dsheet>.dcol2{break-before:column}.dsheet h2{font-size:22px!important}}
+</style>
+</helmet>
+<div style="position:relative;width:100%;height:100vh;overflow:hidden;font-family:Nunito,sans-serif;color:#2b2540">
+  <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none"><dc-import name="Account" hint-size="100%,100%"></dc-import></div>
+  <div role="dialog" aria-modal="true" aria-labelledby="del-title" style="position:absolute;inset:0;background:rgba(30,42,43,.55);display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box">
+    <div class="dsheet" style="width:520px;max-width:100%;max-height:calc(100vh - 32px);overflow-y:auto;background:#FFFCF9;border-radius:24px;padding:28px;box-sizing:border-box;box-shadow:0 20px 60px rgba(0,0,0,.3)">
+      <h2 id="del-title" style="margin:0;font:600 26px Fredoka,sans-serif;color:#7A2E1F">Delete your account?</h2>
+      <p style="margin:8px 0 6px;font-size:15px;color:#4a4362">This can't be undone. We'll delete:</p>
+      <ul style="margin:0 0 14px;padding-left:22px;font-size:15px;line-height:1.45">
+        <li>Your 3 books: story text, pictures, covers and PDFs</li>
+        <li>The names and details you added for the people in your books</li>
+        <li>Your 120 unused credits. [REFUND POLICY FOR UNUSED CREDITS]</li>
+      </ul>
+      <p style="margin:0 0 16px;font-size:14px;color:#5d5672">Stripe keeps its own record of your past payments. Want a copy of your books first? <a href="#">Download all my data</a></p>
+      <label for="confirm" class="dcol2" style="display:block;font-size:14px;font-weight:800;margin-bottom:6px">Type DELETE to confirm</label>
+      <input id="confirm" value="{{txt}}" onInput="{{type}}" autocomplete="off" style="width:100%;box-sizing:border-box;min-height:48px;border:2px solid #E8B4A8;border-radius:12px;padding:0 14px;font:700 16px Nunito,sans-serif;letter-spacing:.08em;background:#fff">
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px">
+        <button disabled="{{blocked}}" class="btn" style="{{delStyle}}">Delete my account forever</button>
+        <a href="Account.dc.html" class="btn" style="background:#FBEDE2;color:#2b2540">Keep my account</a>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1100}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { txt: '' }; }
+  renderVals() {
+    const ok = this.state.txt.trim().toUpperCase() === 'DELETE';
+    return {
+      txt: this.state.txt, blocked: !ok,
+      type: (e) => this.setState({ txt: e.target.value }),
+      delStyle: ok ? 'background:#7A2E1F;color:#fff;cursor:pointer' : 'background:#F3DCD6;color:#8E5A50;cursor:not-allowed'
+    };
+  }
+}
+</script>
+</body>
+</html>

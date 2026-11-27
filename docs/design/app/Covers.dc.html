@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Extra pages</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFF6EE}
+a{color:#5B57E8}a:hover{color:#3f3bc4}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:0 18px;border-radius:999px;font:800 15px Nunito,sans-serif;text-decoration:none;border:0;cursor:pointer}
+.card{background:#fff;border:1px solid #F1DCCB;border-radius:18px}
+.step{padding:8px 14px;border-radius:999px;font-weight:800;font-size:14px;text-decoration:none;color:#5d5672}
+.row{display:flex;align-items:center;gap:12px;min-height:52px;padding:4px 0;border-top:1px solid #F1EADF}
+.sw{width:48px;height:28px;border-radius:999px;border:0;padding:3px;display:flex;cursor:pointer;flex-shrink:0}
+@media (max-width:899px){nav[aria-label="Book steps"] .step{display:none}nav[aria-label="Book steps"] .step.cur,nav[aria-label="Book steps"] .step.prev{display:inline-flex}nav[aria-label="Book steps"]{margin-left:0!important;width:100%}.prow{grid-template-columns:1fr 1fr 44px!important}.prow>:nth-child(1){grid-column:1;grid-row:1}.prow>:nth-child(2){grid-column:2;grid-row:1}.prow>:nth-child(3){grid-column:1;grid-row:2}.prow>:nth-child(4){grid-column:2;grid-row:2}.prow>:nth-child(5){grid-column:3;grid-row:1/span 2;align-self:center}.phead{display:none!important}}
+@media (max-width:699px){.app{height:auto!important;overflow:visible!important}.split{flex-direction:column!important}.pane{overflow:visible!important;flex-basis:auto!important}}
+@media (min-width:700px) and (max-width:1099px){.cols{flex-wrap:nowrap!important}.cols>main,.split>main{flex:3 1 0!important;min-width:0}.cols>aside,.split>aside{flex:2 1 0!important;min-width:0}.cols2{flex-wrap:nowrap!important}.cols2>main{flex:3 1 0!important}.cols2>aside{flex:2 1 0!important}}
+@media (max-width:599px){h1{font-size:26px!important}.btn{min-height:44px}}
+textarea{field-sizing:content}.ttl{flex:1 1 220px;min-width:0}.rotate{display:none}
+@media (max-width:599px) and (orientation:portrait){.rotate{display:flex;position:fixed;inset:0;z-index:100;background:#FFF6EE;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:32px;text-align:center}}
+@media (max-height:520px) and (orientation:landscape){.app{height:100vh!important;min-height:0!important;display:flex!important;flex-direction:column!important;overflow:hidden!important}.hdr{flex-shrink:0;flex-wrap:nowrap!important;padding:6px 16px!important;gap:10px!important}.hdr svg{width:28px;height:28px}.ttl{flex:1 1 0}.ttl>div:first-child{font-size:16px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sub{display:none}nav[aria-label="Book steps"]{width:auto!important;flex-shrink:0;flex-wrap:nowrap!important;margin-left:auto!important}nav[aria-label="Book steps"] .step{padding:6px 12px}
+.cols,.split{flex:1;min-height:0;flex-wrap:nowrap!important;flex-direction:row!important;align-items:stretch!important;padding:10px 16px 0!important;gap:16px!important;max-width:none!important;width:100%;box-sizing:border-box}.cols>main,.cols>aside,.split>main,.split>aside{overflow-y:auto!important;min-height:0;padding:0 0 16px!important}.cols>main,.split>main{flex:3 1 0!important}.cols>aside,.split>aside{flex:2 1 0!important}.scroll{flex:1;min-height:0;overflow-y:auto;padding-top:12px!important;padding-bottom:16px!important;max-width:none!important;width:100%;box-sizing:border-box}.cols2{flex-wrap:nowrap!important}.cols2>main{flex:3 1 0!important}.cols2>aside{flex:2 1 0!important}.hdr span{font-size:16px!important}.hdr nav a{padding:6px 10px!important}.hdr button{width:34px!important;height:34px!important}.steplbl{display:none!important}.credpill{min-height:30px!important;font-size:13px!important;padding:0 10px!important}.mainc{padding-top:10px!important;padding-bottom:16px!important}.banner{margin-top:10px!important;padding:8px 14px!important;gap:12px!important}.banner>div>div+div{display:none}.banner svg{width:26px;height:26px}.bkart{height:110px!important}.bkgrid{margin-top:12px!important;grid-template-columns:repeat(auto-fill,minmax(180px,1fr))!important;gap:12px!important}.nbcard{display:block!important;column-count:2;column-gap:24px;padding:14px!important;margin-top:8px!important}.nbcard>*{break-inside:avoid}.nbcard>.c2{margin-top:0!important}.nbcard>.c2a{break-before:column}.nbcard span[style*="background:#FBEDE2"]{font-size:12px;padding:2px 8px!important}.bkart>div:first-child{display:none}[aria-label="Age group"]{gap:6px!important;grid-template-columns:repeat(3,minmax(0,1fr))!important}[aria-label="Age group"] button{min-height:0!important;padding:8px!important}[aria-label="Age group"] button span+span{display:none!important}[aria-label="Age group"] button span{font-size:16px!important}h1{font-size:22px!important}h1+p{display:none!important}}
+</style>
+</helmet>
+<div class="app" style="min-height:100vh;font-family:Nunito,sans-serif;color:#2b2540;background:#FFF6EE">
+<div class="rotate" role="alert">
+<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="1.6" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"></rect><path d="M2 14a8 8 0 0 0 6 7"></path><path d="M2 18v-4h4"></path></svg>
+<div style="font:600 22px Fredoka,sans-serif">Turn your phone sideways</div>
+<div style="color:#5d5672;font-size:15px;max-width:280px">Making a book needs the wider screen. Everything you've done is saved.</div>
+<a href="Main.dc.html" style="font-weight:800">Back to My books</a>
+</div>
+  <header class="hdr" style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:14px clamp(16px,4vw,32px);border-bottom:1px solid #F1DCCB;background:#FFFCF9">
+    <a href="Main.dc.html" aria-label="My books" style="display:flex;text-decoration:none"><img src="/_blob/39e5942290a1f288940ae460d77badc0" alt="" style="width:36px;height:36px;border-radius:8px;display:block;flex:none"></a>
+    <div class="ttl"><div style="font:600 20px Fredoka,sans-serif">The Hen Who Shared Her Bread</div><div class="sub" style="font-size:13px;color:#5d5672">Ages 4–6 · 12 pages · 8.5in square</div></div>
+    <nav aria-label="Book steps" style="display:flex;flex-wrap:wrap;gap:4px;margin-left:auto">
+      <a href="Editor.dc.html" class="step" style="color:#2E7D32">✓ Story</a>
+      <a href="Cast.dc.html" class="step" style="color:#2E7D32">✓ Cast</a>
+      <a href="Layout.dc.html" class="step" style="color:#2E7D32">✓ Size &amp; layout</a>
+      <a href="Pictures.dc.html" class="step" style="color:#2E7D32">✓ Pictures</a>
+      <a href="Format.dc.html" class="step" style="color:#2E7D32">✓ Text effects</a>
+      <a href="CoverFront.dc.html" class="step" style="color:#2E7D32">✓ Front cover</a>
+      <a href="CoverBack.dc.html" class="step prev" style="color:#2E7D32">✓ Back cover</a>
+      <a href="Covers.dc.html" class="step cur" style="background:#2E7D32;color:#fff">8 Extra pages</a>
+      <a href="Preview.dc.html" class="step">9 Preview &amp; download</a>
+    </nav>
+    <a href="BuyCredits.dc.html" class="credpill" aria-label="120 credits left. Buy more credits" style="display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 12px;border-radius:999px;background:#FFF1E4;color:#8A4A14;font-weight:800;font-size:14px;text-decoration:none;flex-shrink:0;white-space:nowrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v10M9 10h4.5a2 2 0 010 4H9"></path></svg>120 credits</a>
+  </header>
+
+  <div class="cols" style="max-width:1240px;margin:0 auto;padding:28px clamp(16px,4vw,32px) 48px;display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start">
+    <main style="flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:24px">
+      <h1 style="margin:0;font:600 32px Fredoka,sans-serif">Extra pages</h1>
+      <p style="margin:-14px 0 0;color:#5d5672">These pages have no pictures, so they're free. Switch on the ones you want.</p>
+
+      <section class="card" style="padding:8px 20px 12px">
+        <h2 style="margin:12px 0 8px;font:600 19px Fredoka,sans-serif">Extra pages</h2>
+        <div class="row"><div style="flex:1"><div style="font-weight:800">This book belongs to</div><div style="font-size:13px;color:#5d5672">A line for the child's name</div></div><button role="switch" aria-checked="true" aria-label="This book belongs to" class="sw" style="background:#2E7D32;justify-content:flex-end"><span style="width:22px;height:22px;border-radius:50%;background:#fff"></span></button></div>
+        <div class="row"><div style="flex:1;min-width:0"><div style="font-weight:800">Dedication</div><input aria-label="Dedication text" value="For [NAME], who always shares" style="width:100%;box-sizing:border-box;min-height:40px;margin-top:6px;border:2px solid #F1DCCB;border-radius:10px;padding:0 10px;font:400 14px Nunito,sans-serif;background:#FFFCF9"></div><button role="switch" aria-checked="true" aria-label="Dedication" class="sw" style="background:#2E7D32;justify-content:flex-end"><span style="width:22px;height:22px;border-radius:50%;background:#fff"></span></button></div>
+        <div class="row"><div style="flex:1"><div style="font-weight:800">Credits</div><div style="font-size:13px;color:#5d5672">Story by · Pictures made with AI</div></div><button role="switch" aria-checked="true" aria-label="Credits" class="sw" style="background:#2E7D32;justify-content:flex-end"><span style="width:22px;height:22px;border-radius:50%;background:#fff"></span></button></div>
+        <div class="row"><div style="flex:1"><div style="font-weight:800">The end</div></div><button role="switch" aria-checked="false" aria-label="The end page" class="sw" style="background:#C9C1B3;justify-content:flex-start"><span style="width:22px;height:22px;border-radius:50%;background:#fff"></span></button></div>
+      </section>
+    </main>
+
+    <aside style="flex:1 1 320px;min-width:0">
+      <section class="card" style="padding:22px;background:#2b2540;border-color:#2b2540;color:#FFF6EE">
+        <h2 style="margin:0;font:600 22px Fredoka,sans-serif">Your book so far</h2>
+        <dl style="margin:16px 0 0;display:grid;grid-template-columns:1fr auto;row-gap:10px;font-size:15px">
+          <dt style="color:#D6CFE0">Size</dt><dd style="margin:0;font-weight:800">8.5in square + bleed</dd>
+          <dt style="color:#D6CFE0">Story pages</dt><dd style="margin:0;font-weight:800">12</dd>
+          <dt style="color:#D6CFE0">Extra pages</dt><dd style="margin:0;font-weight:800">3</dd>
+          <dt style="color:#D6CFE0">Blank pages added</dt><dd style="margin:0;font-weight:800">9</dd>
+          <dt style="color:#D6CFE0">Total</dt><dd style="margin:0;font-weight:800">24 pages</dd>
+        </dl>
+        <p style="margin:14px 0 0;font-size:13px;color:#D6CFE0">Print books need at least 24 pages. Turn on "The end" to use one fewer blank page.</p>
+        <p style="margin:10px 0 0;font-size:13px;color:#D6CFE0">You also get a full cover PDF: back, spine and front, from your <a href="CoverFront.dc.html" style="color:#F2A65A">front</a> and <a href="CoverBack.dc.html" style="color:#F2A65A">back</a> covers.</p>
+        <a href="Preview.dc.html" class="btn" style="background:#F2A65A;color:#2b2540;width:100%;box-sizing:border-box;margin-top:18px">Next: preview your book →</a>
+      </section>
+    </aside>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1280}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

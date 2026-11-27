@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>My books</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFF6EE}
+a{color:#5B57E8}a:hover{color:#3f3bc4}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 20px;border-radius:999px;font:700 15px Nunito,sans-serif;text-decoration:none;border:0;cursor:pointer}
+.card{background:#fff;border:1px solid #F1DCCB;border-radius:20px}
+@media (max-width:899px){nav[aria-label="Book steps"] .step{display:none}nav[aria-label="Book steps"] .step.cur,nav[aria-label="Book steps"] .step.prev{display:inline-flex}nav[aria-label="Book steps"]{margin-left:0!important;width:100%}.prow{grid-template-columns:1fr 1fr 44px!important}.prow>:nth-child(1){grid-column:1;grid-row:1}.prow>:nth-child(2){grid-column:2;grid-row:1}.prow>:nth-child(3){grid-column:1;grid-row:2}.prow>:nth-child(4){grid-column:2;grid-row:2}.prow>:nth-child(5){grid-column:3;grid-row:1/span 2;align-self:center}.phead{display:none!important}}
+@media (max-width:699px){.app{height:auto!important;overflow:visible!important}.split{flex-direction:column!important}.pane{overflow:visible!important;flex-basis:auto!important}}
+@media (min-width:700px) and (max-width:1099px){.cols{flex-wrap:nowrap!important}.cols>main,.split>main{flex:3 1 0!important;min-width:0}.cols>aside,.split>aside{flex:2 1 0!important;min-width:0}.cols2{flex-wrap:nowrap!important}.cols2>main{flex:3 1 0!important}.cols2>aside{flex:2 1 0!important}}
+@media (max-width:599px){h1{font-size:26px!important}.btn{min-height:44px}}
+@media (max-height:520px) and (orientation:landscape){.hdr{padding:6px 16px!important;gap:10px!important;flex-wrap:nowrap!important}.hdr svg{width:28px;height:28px}.hdr span{font-size:16px!important}.hdr nav a{padding:6px 10px!important}.hdr button{width:34px!important;height:34px!important}.steplbl{display:none!important}.credpill{min-height:30px!important;font-size:13px!important;padding:0 10px!important}.mainc{padding-top:10px!important;padding-bottom:16px!important}.banner{margin-top:10px!important;padding:8px 14px!important;gap:12px!important}.banner>div>div+div{display:none}.banner svg{width:26px;height:26px}.bkart{height:110px!important}.bkgrid{margin-top:12px!important;grid-template-columns:repeat(auto-fill,minmax(180px,1fr))!important;gap:12px!important}.nbcard{display:block!important;column-count:2;column-gap:24px;padding:14px!important;margin-top:8px!important}.nbcard>*{break-inside:avoid}.nbcard>.c2{margin-top:0!important}.nbcard>.c2a{break-before:column}.nbcard span[style*="background:#FBEDE2"]{font-size:12px;padding:2px 8px!important}.bkart>div:first-child{display:none}[aria-label="Age group"]{gap:6px!important;grid-template-columns:repeat(3,minmax(0,1fr))!important}[aria-label="Age group"] button{min-height:0!important;padding:8px!important}[aria-label="Age group"] button span+span{display:none!important}[aria-label="Age group"] button span{font-size:16px!important}h1{font-size:22px!important}h1+p{display:none!important}.bkgrid>a:last-child{min-height:0!important;padding:16px}}
+</style>
+</helmet>
+<div style="min-height:100vh;font-family:Nunito,sans-serif;color:#2b2540;background:#FFF6EE">
+  <header class="hdr" style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:16px clamp(16px,4vw,40px);border-bottom:1px solid #F1DCCB;background:#FFFCF9">
+    <a href="Main.dc.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#2b2540">
+      <img src="/_blob/39e5942290a1f288940ae460d77badc0" alt="" style="width:36px;height:36px;border-radius:8px;display:block;flex:none">
+      <span style="font:700 22px Fredoka,sans-serif">Dino Story Studio</span>
+    </a>
+    <nav style="display:flex;gap:4px;margin-left:24px;flex-wrap:wrap">
+      <a href="Main.dc.html" style="padding:10px 14px;border-radius:12px;background:#E3F5E5;color:#1B5E20;font-weight:800;text-decoration:none">My books</a>
+    </nav>
+    <div style="flex:1"></div>
+    <a href="BuyCredits.dc.html" aria-label="120 credits left. Buy more credits" style="display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:#FFF1E4;color:#8A4A14;font-weight:800;text-decoration:none">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v10M9 10h4.5a2 2 0 010 4H9"></path></svg>
+      120 credits
+    </a>
+    <button aria-label="Account" style="width:44px;height:44px;border-radius:50%;border:0;background:#D9E6F2;color:#23415E;font:800 16px Nunito,sans-serif">A</button>
+  </header>
+
+  <main class="mainc" style="max-width:1200px;margin:0 auto;padding:40px clamp(16px,4vw,40px) 64px">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px;justify-content:space-between">
+      <div>
+        <h1 style="margin:0;font:600 40px Fredoka,sans-serif">My books</h1>
+        <p style="margin:8px 0 0;color:#5d5672;font-size:17px">Writing and editing are free. Pictures and the print PDF use credits.</p>
+      </div>
+      <a href="NewBook.dc.html" class="btn" style="background:#2E7D32;color:#fff">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+        New book
+      </a>
+    </div>
+
+    <section class="card banner" style="margin-top:28px;padding:20px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:20px;background:#F1FAF2;border-color:#C8E8CB">
+      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="1.8" aria-hidden="true"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 21V7M12 7H8a2.5 2.5 0 010-5c3 0 4 5 4 5zM12 7h4a2.5 2.5 0 000-5c-3 0-4 5-4 5z"></path></svg>
+      <div style="flex:1;min-width:260px">
+        <div style="font-weight:800;font-size:17px">Your starting credits are ready</div>
+        <div style="color:#4a4362">Enough for one 12-page book with draft-quality pictures.</div>
+      </div>
+      <a href="NewBook.dc.html" style="font-weight:800">Start your first book →</a>
+    </section>
+
+    <div class="bkgrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:24px;margin-top:32px">
+      <a href="Editor.dc.html" class="card" style="display:block;text-decoration:none;color:inherit;overflow:hidden">
+        <div class="bkart" style="height:260px;background:#FCE3C8;display:flex;align-items:flex-end;padding:18px;box-sizing:border-box;position:relative">
+          <div style="position:absolute;inset:24px 24px 70px;border-radius:14px;background:#F6C99A"></div>
+          <div style="position:relative;font:600 22px Fredoka,sans-serif;color:#5A2E0C">The Hen Who Shared Her Bread</div>
+        </div>
+        <div style="padding:16px 18px">
+          <div style="display:flex;justify-content:space-between;color:#5d5672;font-size:14px"><span>Ages 4–6 · 12 pages</span><span>Edited today</span></div>
+          <div style="margin-top:10px;display:inline-block;padding:4px 10px;border-radius:999px;background:#E3F5E5;color:#1B5E20;font-size:13px;font-weight:800">Story ready · add pictures</div>
+        </div>
+      </a>
+      <a href="Pictures.dc.html" class="card" style="display:block;text-decoration:none;color:inherit;overflow:hidden">
+        <div class="bkart" style="height:260px;background:#D9E6F2;display:flex;align-items:flex-end;padding:18px;box-sizing:border-box;position:relative">
+          <div style="position:absolute;inset:24px 24px 70px;border-radius:14px;background:#B5CDE4"></div>
+          <div style="position:relative;font:600 22px Fredoka,sans-serif;color:#1C3550">Pip and the Puddle Boat</div>
+        </div>
+        <div style="padding:16px 18px">
+          <div style="display:flex;justify-content:space-between;color:#5d5672;font-size:14px"><span>Ages 2–4 · 10 pages</span><span>Yesterday</span></div>
+          <div style="margin-top:10px;display:inline-block;padding:4px 10px;border-radius:999px;background:#FFF1E4;color:#8A4A14;font-size:13px;font-weight:800">Pictures 6 of 10</div>
+        </div>
+      </a>
+      <a href="Covers.dc.html" class="card" style="display:block;text-decoration:none;color:inherit;overflow:hidden">
+        <div class="bkart" style="height:260px;background:#E5DDF3;display:flex;align-items:flex-end;padding:18px;box-sizing:border-box;position:relative">
+          <div style="position:absolute;inset:24px 24px 70px;border-radius:14px;background:#C9B9E6"></div>
+          <div style="position:relative;font:600 22px Fredoka,sans-serif;color:#33205A">Three Little Pigs Go Camping</div>
+        </div>
+        <div style="padding:16px 18px">
+          <div style="display:flex;justify-content:space-between;color:#5d5672;font-size:14px"><span>Ages 6–9 · 18 pages</span><span>3 Nov</span></div>
+          <div style="margin-top:10px;display:inline-block;padding:4px 10px;border-radius:999px;background:#2b2540;color:#fff;font-size:13px;font-weight:800">PDF ready · 8.5in square</div>
+        </div>
+      </a>
+      <a href="NewBook.dc.html" class="card" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;min-height:340px;text-decoration:none;color:#2E7D32;border-style:dashed;border-width:2px;background:transparent">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+        <span style="font:600 20px Fredoka,sans-serif">Start a new book</span>
+        <span style="color:#5d5672;font-size:14px">From your own idea</span>
+      </a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":960}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

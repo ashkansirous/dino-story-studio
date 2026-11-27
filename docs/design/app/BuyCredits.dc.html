@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Buy credits pop-up</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:0 18px;border-radius:999px;font:800 15px Nunito,sans-serif;text-decoration:none;border:0;cursor:pointer}
+@media (max-height:520px){.sheet{max-height:calc(100vh - 24px)!important;padding:16px 20px!important}.packs{grid-template-columns:repeat(3,minmax(0,1fr))!important}.sheet h2{font-size:20px!important}}
+</style>
+</helmet>
+<div style="position:relative;width:100%;height:100vh;overflow:hidden;font-family:Nunito,sans-serif;color:#2b2540">
+  <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none"><dc-import name="Pictures" hint-size="100%,100%"></dc-import></div>
+  <div role="dialog" aria-modal="true" aria-labelledby="bc-title" style="position:absolute;inset:0;background:rgba(30,42,43,.55);display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box">
+    <div class="sheet" style="width:560px;max-width:100%;max-height:calc(100vh - 32px);overflow-y:auto;background:#FFFCF9;border-radius:24px;padding:28px;box-sizing:border-box;box-shadow:0 20px 60px rgba(0,0,0,.3)">
+      <div style="display:flex;align-items:flex-start;gap:12px">
+        <div style="flex:1">
+          <h2 id="bc-title" style="margin:0;font:600 26px Fredoka,sans-serif">{{title}}</h2>
+          <p style="margin:6px 0 0;color:#4a4362;font-size:15px">{{body}}</p>
+        </div>
+        <a href="Pictures.dc.html" aria-label="Close" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:#5d5672;text-decoration:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></a>
+      </div>
+      <div style="display:flex;gap:10px;margin:16px 0;flex-wrap:wrap">
+        <span style="padding:6px 12px;border-radius:999px;background:#FFF1E4;color:#8A4A14;font-weight:800;font-size:14px">You have {{balanceText}}</span>
+        <sc-if value="{{isOut}}" hint-placeholder-val="{{ true }}"><span style="padding:6px 12px;border-radius:999px;background:#FBEDE2;font-weight:800;font-size:14px">This needs [CREDITS] credits</span></sc-if>
+      </div>
+      <div role="radiogroup" aria-label="Credit pack" class="packs" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px">
+        <sc-for list="{{packs}}" as="p" hint-placeholder-count="3">
+          <button role="radio" aria-checked="{{p.checked}}" onClick="{{p.pick}}" style="{{p.style}}">
+            <span style="display:block;font:600 20px Fredoka,sans-serif">{{p.name}}</span>
+            <span style="display:block;font-size:14px;color:#4a4362;margin-top:2px">[N] credits</span>
+            <span style="display:block;font-weight:800;margin-top:8px">[PRICE]</span>
+          </button>
+        </sc-for>
+      </div>
+      <button class="btn" style="width:100%;margin-top:18px;background:#2E7D32;color:#fff">Pay with card</button>
+      <p style="margin:12px 0 0;font-size:13px;color:#5d5672;text-align:center">Your work is saved. After paying you come straight back here and carry on. Writing and editing text stay free.</p>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"reason":{"editor":"enum","options":["out","topup"],"default":"out"},"$preview":{"width":1280,"height":900}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { pack: 'mid' }; }
+  renderVals() {
+    const out = (this.props.reason ?? 'out') === 'out';
+    const packs = [['small', 'Small'], ['mid', 'Medium'], ['big', 'Large']].map(([id, name]) => ({
+      name, checked: String(this.state.pack === id), pick: () => this.setState({ pack: id }),
+      style: 'text-align:left;padding:14px;border-radius:16px;cursor:pointer;font-family:Nunito,sans-serif;color:#2b2540;' + (this.state.pack === id ? 'border:2px solid #2E7D32;background:#E3F5E5' : 'border:2px solid #F1DCCB;background:#fff')
+    }));
+    return {
+      isOut: out, packs,
+      balanceText: out ? '1 credit' : '120 credits',
+      title: out ? 'Not enough credits' : 'Buy credits',
+      body: out ? 'Changing this picture needs more credits than you have left. Top up and we’ll draw it straight away.' : 'Pictures and the print-quality PDF use credits. Pick a pack.'
+    };
+  }
+}
+</script>
+</body>
+</html>

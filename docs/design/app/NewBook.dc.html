@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>New book</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFF6EE}
+a{color:#5B57E8}a:hover{color:#3f3bc4}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;border-radius:999px;font:800 16px Nunito,sans-serif;text-decoration:none;border:0;cursor:pointer}
+.card{background:#fff;border:1px solid #F1DCCB;border-radius:20px}
+.lbl{display:block;font-weight:800;font-size:15px;margin-bottom:10px}
+@media (max-width:899px){nav[aria-label="Book steps"] .step{display:none}nav[aria-label="Book steps"] .step.cur,nav[aria-label="Book steps"] .step.prev{display:inline-flex}nav[aria-label="Book steps"]{margin-left:0!important;width:100%}.prow{grid-template-columns:1fr 1fr 44px!important}.prow>:nth-child(1){grid-column:1;grid-row:1}.prow>:nth-child(2){grid-column:2;grid-row:1}.prow>:nth-child(3){grid-column:1;grid-row:2}.prow>:nth-child(4){grid-column:2;grid-row:2}.prow>:nth-child(5){grid-column:3;grid-row:1/span 2;align-self:center}.phead{display:none!important}}
+@media (max-width:699px){.app{height:auto!important;overflow:visible!important}.split{flex-direction:column!important}.pane{overflow:visible!important;flex-basis:auto!important}}
+@media (min-width:700px) and (max-width:1099px){.cols{flex-wrap:nowrap!important}.cols>main,.split>main{flex:3 1 0!important;min-width:0}.cols>aside,.split>aside{flex:2 1 0!important;min-width:0}.cols2{flex-wrap:nowrap!important}.cols2>main{flex:3 1 0!important}.cols2>aside{flex:2 1 0!important}}
+@media (max-width:599px){h1{font-size:26px!important}.btn{min-height:44px}}
+textarea{field-sizing:content}.ttl{flex:1 1 220px;min-width:0}.rotate{display:none}
+@media (max-width:599px) and (orientation:portrait){.rotate{display:flex;position:fixed;inset:0;z-index:100;background:#FFF6EE;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:32px;text-align:center}}
+@media (max-height:520px) and (orientation:landscape){.app{height:100vh!important;min-height:0!important;display:flex!important;flex-direction:column!important;overflow:hidden!important}.hdr{flex-shrink:0;flex-wrap:nowrap!important;padding:6px 16px!important;gap:10px!important}.hdr svg{width:28px;height:28px}.ttl{flex:1 1 0}.ttl>div:first-child{font-size:16px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sub{display:none}nav[aria-label="Book steps"]{width:auto!important;flex-shrink:0;flex-wrap:nowrap!important;margin-left:auto!important}nav[aria-label="Book steps"] .step{padding:6px 12px}
+.cols,.split{flex:1;min-height:0;flex-wrap:nowrap!important;flex-direction:row!important;align-items:stretch!important;padding:10px 16px 0!important;gap:16px!important;max-width:none!important;width:100%;box-sizing:border-box}.cols>main,.cols>aside,.split>main,.split>aside{overflow-y:auto!important;min-height:0;padding:0 0 16px!important}.cols>main,.split>main{flex:3 1 0!important}.cols>aside,.split>aside{flex:2 1 0!important}.scroll{flex:1;min-height:0;overflow-y:auto;padding-top:12px!important;padding-bottom:16px!important;max-width:none!important;width:100%;box-sizing:border-box}.cols2{flex-wrap:nowrap!important}.cols2>main{flex:3 1 0!important}.cols2>aside{flex:2 1 0!important}.hdr span{font-size:16px!important}.hdr nav a{padding:6px 10px!important}.hdr button{width:34px!important;height:34px!important}.steplbl{display:none!important}.credpill{min-height:30px!important;font-size:13px!important;padding:0 10px!important}.mainc{padding-top:10px!important;padding-bottom:16px!important}.banner{margin-top:10px!important;padding:8px 14px!important;gap:12px!important}.banner>div>div+div{display:none}.banner svg{width:26px;height:26px}.bkart{height:110px!important}.bkgrid{margin-top:12px!important;grid-template-columns:repeat(auto-fill,minmax(180px,1fr))!important;gap:12px!important}.nbcard{display:block!important;column-count:2;column-gap:24px;padding:14px!important;margin-top:8px!important}.nbcard>*{break-inside:avoid}.nbcard>.c2{margin-top:0!important}.nbcard>.c2a{break-before:column}.nbcard span[style*="background:#FBEDE2"]{font-size:12px;padding:2px 8px!important}.bkart>div:first-child{display:none}[aria-label="Age group"]{gap:6px!important;grid-template-columns:repeat(3,minmax(0,1fr))!important}[aria-label="Age group"] button{min-height:0!important;padding:8px!important}[aria-label="Age group"] button span+span{display:none!important}[aria-label="Age group"] button span{font-size:16px!important}h1{font-size:22px!important}h1+p{display:none!important}}
+</style>
+</helmet>
+<div class="app" style="min-height:100vh;font-family:Nunito,sans-serif;color:#2b2540;background:#FFF6EE">
+<div class="rotate" role="alert">
+<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="1.6" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"></rect><path d="M2 14a8 8 0 0 0 6 7"></path><path d="M2 18v-4h4"></path></svg>
+<div style="font:600 22px Fredoka,sans-serif">Turn your phone sideways</div>
+<div style="color:#5d5672;font-size:15px;max-width:280px">Making a book needs the wider screen. Everything you've done is saved.</div>
+<a href="Main.dc.html" style="font-weight:800">Back to My books</a>
+</div>
+  <header class="hdr" style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:16px clamp(16px,4vw,40px);border-bottom:1px solid #F1DCCB;background:#FFFCF9">
+    <a href="Main.dc.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#2b2540">
+      <img src="/_blob/39e5942290a1f288940ae460d77badc0" alt="" style="width:36px;height:36px;border-radius:8px;display:block;flex:none">
+      <span style="font:700 22px Fredoka,sans-serif">Dino Story Studio</span>
+    </a>
+    <div style="flex:1"></div>
+    <a href="BuyCredits.dc.html" class="credpill" aria-label="120 credits left. Buy more credits" style="display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 12px;border-radius:999px;background:#FFF1E4;color:#8A4A14;font-weight:800;font-size:14px;text-decoration:none;flex-shrink:0;white-space:nowrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v10M9 10h4.5a2 2 0 010 4H9"></path></svg>120 credits</a>
+    <a href="Main.dc.html" style="font-weight:800;text-decoration:none">← My books</a>
+  </header>
+
+  <main class="scroll" style="max-width:880px;margin:0 auto;padding:40px clamp(16px,4vw,40px)">
+    <section>
+      <div class="steplbl" style="font-size:14px;font-weight:800;color:#2E7D32;margin-bottom:6px">New book · step 1 of 2</div>
+      <h1 style="margin:0;font:600 40px Fredoka,sans-serif">What's your story about?</h1>
+      <p style="margin:8px 0 28px;color:#5d5672;font-size:17px">Write one line, or one line per page. It's your story — we help you shape it, then write the pages.</p>
+
+      <div class="card nbcard" style="padding:28px">
+        <label for="idea" class="lbl">Your idea</label>
+        <textarea id="idea" rows="6" placeholder="Write one line, like: A dino who is scared of the dark&#10;&#10;Or one line per page, like:&#10;1. Rex wakes up&#10;2. He can’t find his hat…" style="width:100%;box-sizing:border-box;border:2px solid #C8E8CB;border-radius:16px;padding:16px;font:400 18px/1.5 Nunito,sans-serif;color:#2b2540;background:#FFFCF9;resize:vertical"></textarea>
+
+        <div class="c2 c2a" style="margin-top:28px">
+          <span class="lbl">Age group</span>
+          <div role="radiogroup" aria-label="Age group" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px">
+            <sc-for list="{{ages}}" as="a" hint-placeholder-count="3">
+              <button role="radio" aria-checked="{{a.checked}}" onClick="{{a.pick}}" style="{{a.style}}">
+                <span style="display:block;font:600 22px Fredoka,sans-serif">{{a.label}}</span>
+                <span style="display:block;font-size:14px;color:#4a4362;margin-top:4px">{{a.hint}}</span>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+
+        <div class="c2" style="margin-top:28px;display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end">
+          <div>
+            <label for="pages" class="lbl">Number of pages</label>
+            <select id="pages" style="min-height:48px;min-width:160px;border:2px solid #C8E8CB;border-radius:14px;padding:0 14px;font:700 17px Nunito,sans-serif;background:#FFFCF9;color:#2b2540">
+              <sc-for list="{{pageOpts}}" as="p" hint-placeholder-count="8"><option>{{p}} pages</option></sc-for>
+            </select>
+          </div>
+          <div style="color:#5d5672;font-size:14px;padding-bottom:12px">Up to {{maxPages}} pages for ages {{ageLabel}}</div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:24px">
+        <a href="Audience.dc.html" class="btn" style="background:#2E7D32;color:#fff">Next: who it's for</a>
+        <span style="color:#5d5672;font-size:15px">Free — no credits used</span>
+      </div>
+
+    </section>
+
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1000}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { age: '2-4', role: 'main' }; }
+  renderVals() {
+    const groups = [
+      { id: '2-4', label: 'Ages 2–4', hint: 'Up to 12 pages · ~15 words a page', max: 12 },
+      { id: '4-6', label: 'Ages 4–6', hint: 'Up to 15 pages · ~30 words a page', max: 15 },
+      { id: '6-9', label: 'Ages 6–9', hint: 'Up to 18 pages · ~60 words a page', max: 18 }
+    ];
+    const cur = groups.find((g) => g.id === this.state.age);
+    const base = 'text-align:left;min-height:88px;padding:16px;border-radius:16px;cursor:pointer;font-family:Nunito,sans-serif;color:#2b2540;';
+    const ages = groups.map((g) => ({
+      ...g,
+      checked: g.id === this.state.age ? 'true' : 'false',
+      style: base + (g.id === this.state.age ? 'border:2px solid #2E7D32;background:#E3F5E5' : 'border:2px solid #F1DCCB;background:#FFFCF9'),
+      pick: () => this.setState({ age: g.id })
+    }));
+    const pageOpts = [];
+    for (let n = 6; n <= cur.max; n += 1) pageOpts.push(n);
+    const pill = 'min-height:44px;padding:0 18px;border-radius:999px;cursor:pointer;font:700 15px Nunito,sans-serif;color:#2b2540;';
+    const roles = [
+      { id: 'main', label: 'Yes, as the main character' },
+      { id: 'side', label: 'Yes, as a helper' },
+      { id: 'none', label: 'No, they just read it' }
+    ].map((r) => ({ ...r, checked: String(this.state.role === r.id), pick: () => this.setState({ role: r.id }),
+      style: pill + (this.state.role === r.id ? 'border:2px solid #2E7D32;background:#E3F5E5' : 'border:2px solid #F1DCCB;background:#FFFCF9') }));
+    const people = [
+      { real: 'Mia', who: 'The reader, 3', story: 'Sky the seagull', part: 'Main' },
+      { real: 'Me (Dad)', who: 'Her dad', story: 'Captain Kit', part: 'Supporting' },
+      { real: 'Nana and Grandad', who: 'Her grandparents', story: 'Grandma and Grandpa Gull', part: 'Supporting' }
+    ];
+    return { ages, pageOpts, maxPages: cur.max, ageLabel: cur.id.replace('-', '–'), roles, people };
+  }
+}
+</script>
+</body>
+</html>

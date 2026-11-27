@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Welcome</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFF6EE}
+a{color:#5B57E8}a:hover{color:#3f3bc4}
+.lbl{display:block;font-size:14px;font-weight:800;color:#4a4362;margin-bottom:6px}
+.chk{display:flex;gap:12px;align-items:flex-start;min-height:44px;cursor:pointer;font-size:15px;line-height:1.45}
+.chk input{width:22px;height:22px;margin:2px 0 0;accent-color:#2E7D32;flex-shrink:0}
+@media (max-height:520px) and (orientation:landscape){.wouter{padding:10px 16px!important;align-items:flex-start!important}.wcard{max-width:800px!important;padding:16px 20px!important;column-count:2;column-gap:28px}.wcard>*{break-inside:avoid}.wcard>.wcol2{break-before:column}.wcard>div:first-child{margin-bottom:8px!important}.wcard h1{font-size:24px!important}.wcard>p:first-of-type{margin-bottom:10px!important}.wcard button{margin-top:12px!important}}
+</style>
+</helmet>
+<div class="wouter" style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px 16px;box-sizing:border-box;font-family:Nunito,sans-serif;color:#2b2540;background:#FFF6EE">
+  <main class="wcard" style="width:100%;max-width:480px;background:#fff;border:1px solid #F1DCCB;border-radius:24px;padding:clamp(20px,4vw,36px);box-sizing:border-box">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px">
+      <img src="/_blob/add6022ee0364e9dfc71e34e1154fb31" alt="" style="width:36px;height:36px;border-radius:8px;display:block;flex:none">
+      <span style="font:700 20px Fredoka,sans-serif">Dino Story Studio</span>
+    </div>
+    <h1 style="margin:0;font:600 30px Fredoka,sans-serif">Welcome!</h1>
+    <p style="margin:6px 0 22px;color:#5d5672;font-size:16px">Just two things before your first book.</p>
+
+    <label for="nm" class="lbl">What should we call you?</label>
+    <input id="nm" value="Ash" style="width:100%;box-sizing:border-box;min-height:48px;border:2px solid #C8E8CB;border-radius:12px;padding:0 14px;font:400 16px Nunito,sans-serif;background:#FFFCF9;color:#2b2540">
+    <p style="margin:6px 0 20px;font-size:13px;color:#5d5672">From your Google account. Used for "by …" on your covers; you can change it on each book.</p>
+
+    <div class="wcol2" style="display:flex;flex-direction:column;gap:10px">
+      <label class="chk"><input type="checkbox" checked="{{adult}}" onChange="{{toggleAdult}}"><span><b>I'm 18 or over.</b> Accounts are for grown-ups making books for children.</span></label>
+      <label class="chk"><input type="checkbox" checked="{{news}}" onChange="{{toggleNews}}"><span>Email me now and then about new features. <span style="color:#5d5672">(Optional)</span></span></label>
+    </div>
+
+    <div style="margin-top:22px;padding:14px 16px;border-radius:14px;background:#F1FAF2;display:flex;gap:12px;align-items:center">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="1.8" aria-hidden="true"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 21V7M12 7H8a2.5 2.5 0 010-5c3 0 4 5 4 5zM12 7h4a2.5 2.5 0 000-5c-3 0-4 5-4 5z"></path></svg>
+      <span style="font-size:15px"><b>[N] free credits</b> are waiting: enough for a first small book with draft pictures.</span>
+    </div>
+
+    <button disabled="{{blocked}}" style="{{btnStyle}}">Start my first book</button>
+    <p style="margin:14px 0 0;font-size:13px;color:#5d5672;text-align:center">Not you? <a href="Main.dc.html">Use a different account</a></p>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":860}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { adult: false, news: false }; }
+  renderVals() {
+    const s = this.state;
+    return {
+      adult: s.adult, news: s.news, blocked: !s.adult,
+      toggleAdult: () => this.setState({ adult: !s.adult }),
+      toggleNews: () => this.setState({ news: !s.news }),
+      btnStyle: 'width:100%;margin-top:22px;min-height:52px;border:0;border-radius:999px;font:800 16px Nunito,sans-serif;' + (s.adult ? 'background:#2E7D32;color:#fff;cursor:pointer' : 'background:#E9E1D3;color:#6B726F;cursor:not-allowed')
+    };
+  }
+}
+</script>
+</body>
+</html>

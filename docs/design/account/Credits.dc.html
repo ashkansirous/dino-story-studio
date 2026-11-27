@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Credits and payments</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFF6EE}
+a{color:#5B57E8}a:hover{color:#3f3bc4}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:0 18px;border-radius:999px;font:800 15px Nunito,sans-serif;text-decoration:none;border:0;cursor:pointer}
+.card{background:#fff;border:1px solid #F1DCCB;border-radius:18px}
+.nav a{padding:8px 12px;border-radius:12px;font-weight:700;text-decoration:none;color:#4a4362}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th{text-align:left;font-size:12px;letter-spacing:.04em;color:#5d5672;font-weight:800;padding:10px 12px;border-bottom:1px solid #F1DCCB;white-space:nowrap}
+td{padding:12px;border-bottom:1px solid #F1EADF;vertical-align:top}
+@media (max-height:520px){.hdr{padding:6px 16px!important}.hdr svg{width:28px;height:28px}.bal{padding:14px!important}.bal div:nth-child(2){font-size:34px!important}.wrap{padding-top:12px!important}h1{font-size:22px!important}h1+p{display:none}}
+@media (max-width:599px){.hdr .nav{order:3;width:100%;margin-left:0!important}.hdr{gap:8px!important}}
+@media (max-height:520px) and (orientation:landscape){.hdr{padding:6px 16px!important;gap:10px!important;flex-wrap:nowrap!important}.hdr svg{width:28px;height:28px}.hdr span[style*="font:700 20px"]{font-size:16px!important}.hdr .nav{order:0!important;width:auto!important;margin-left:8px!important}.nav a{padding:6px 10px!important;font-size:14px}.hdr>span,.hdr>a:last-child{min-height:30px!important;font-size:13px!important}.wrap{max-width:none!important;padding:10px 16px 16px!important}.wrap>h1,.wrap>h1+p{display:none!important}.card{padding:14px!important}.bal{display:none!important}}
+</style>
+</helmet>
+<div style="min-height:100vh;font-family:Nunito,sans-serif;color:#2b2540;background:#FFF6EE">
+  <header class="hdr" style="display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:14px clamp(16px,4vw,40px);border-bottom:1px solid #F1DCCB;background:#FFFCF9">
+    <a href="#" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#2b2540"><img src="/_blob/add6022ee0364e9dfc71e34e1154fb31" alt="" style="width:34px;height:34px;border-radius:8px;display:block;flex:none"><span style="font:700 20px Fredoka,sans-serif">Dino Story Studio</span></a>
+    <nav class="nav" aria-label="Main" style="display:flex;gap:4px;margin-left:12px"><a href="#">My books</a><a href="Credits.dc.html" style="background:#E3F5E5;color:#1B5E20">Credits</a><a href="Account.dc.html">Account</a></nav>
+    <div style="flex:1"></div>
+    <span style="display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 12px;border-radius:999px;background:#FFF1E4;color:#8A4A14;font-weight:800;font-size:14px">120 credits</span>
+  </header>
+
+  <main class="wrap" style="max-width:1080px;margin:0 auto;padding:32px clamp(16px,4vw,40px) 48px">
+    <h1 style="margin:0;font:600 34px Fredoka,sans-serif">Credits &amp; payments</h1>
+    <p style="margin:6px 0 24px;color:#5d5672;font-size:16px">Writing and editing are free. Credits pay for pictures and the print-quality PDF.</p>
+
+    <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:stretch">
+      <section class="card bal" style="flex:1 1 220px;box-sizing:border-box;padding:22px;background:#2b2540;border-color:#2b2540;color:#FFF6EE;display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:13px;font-weight:800;letter-spacing:.04em;color:#D6CFE0">YOUR BALANCE</div>
+        <div style="font:600 48px Fredoka,sans-serif">120</div>
+        <div style="font-size:14px;color:#D6CFE0">credits left</div>
+      </section>
+      <section class="card" style="flex:3 1 420px;box-sizing:border-box;padding:22px">
+        <h2 style="margin:0 0 12px;font:600 20px Fredoka,sans-serif">Buy credits</h2>
+        <div role="radiogroup" aria-label="Credit pack" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px">
+          <sc-for list="{{packs}}" as="p" hint-placeholder-count="3">
+            <button role="radio" aria-checked="{{p.checked}}" onClick="{{p.pick}}" style="{{p.style}}"><span style="display:block;font:600 18px Fredoka,sans-serif">{{p.name}}</span><span style="display:block;font-size:14px;color:#4a4362">[N] credits</span><span style="display:block;font-weight:800;margin-top:6px">[PRICE]</span></button>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:14px">
+          <button class="btn" style="background:#2E7D32;color:#fff">Pay with card</button>
+          <span style="font-size:13px;color:#5d5672">You pay on Stripe's secure page; we never see your card. A receipt is emailed to you.</span>
+        </div>
+      </section>
+    </div>
+
+    <section class="card" style="margin-top:20px;padding:8px 0 4px">
+      <div role="tablist" aria-label="History" style="display:flex;gap:6px;padding:10px 16px">
+        <sc-for list="{{tabs}}" as="t" hint-placeholder-count="2">
+          <button role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}" style="{{t.style}}">{{t.label}}</button>
+        </sc-for>
+      </div>
+      <div style="overflow-x:auto">
+        <sc-if value="{{isUse}}" hint-placeholder-val="{{ true }}">
+          <table>
+            <thead><tr><th>Date</th><th>Book</th><th>What</th><th style="text-align:right">Credits</th></tr></thead>
+            <tbody>
+              <sc-for list="{{uses}}" as="u" hint-placeholder-count="6">
+                <tr><td style="white-space:nowrap;color:#5d5672">{{u.date}}</td><td>{{u.book}}</td><td>{{u.what}}</td><td style="{{u.amtStyle}}">{{u.amt}}</td></tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </sc-if>
+        <sc-if value="{{isPay}}" hint-placeholder-val="{{ false }}">
+          <table>
+            <thead><tr><th>Date</th><th>Pack</th><th>Paid</th><th>Status</th><th>Receipt</th></tr></thead>
+            <tbody>
+              <tr><td style="color:#5d5672">24 Nov 2026</td><td>Medium · [N] credits</td><td>[PRICE]</td><td><span style="padding:3px 8px;border-radius:999px;background:#E3F5E5;color:#1B5E20;font-size:13px;font-weight:800">Paid</span></td><td><a href="#">View receipt</a></td></tr>
+              <tr><td style="color:#5d5672">2 Nov 2026</td><td>Small · [N] credits</td><td>[PRICE]</td><td><span style="padding:3px 8px;border-radius:999px;background:#FBEDE2;color:#4a4362;font-size:13px;font-weight:800">Refunded</span></td><td><a href="#">View receipt</a></td></tr>
+            </tbody>
+          </table>
+          <p style="margin:0;padding:12px 16px;font-size:13px;color:#5d5672">Receipts open on Stripe. Need help with a payment? <a href="#">Contact us</a>.</p>
+        </sc-if>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1100}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { pack: 'mid', tab: 'use' }; }
+  renderVals() {
+    const s = this.state;
+    const packs = [['small', 'Small'], ['mid', 'Medium'], ['big', 'Large']].map(([id, name]) => ({ name, checked: String(s.pack === id), pick: () => this.setState({ pack: id }),
+      style: 'text-align:left;padding:12px 14px;border-radius:14px;cursor:pointer;font-family:Nunito,sans-serif;color:#2b2540;' + (s.pack === id ? 'border:2px solid #2E7D32;background:#E3F5E5' : 'border:2px solid #F1DCCB;background:#FFFCF9') }));
+    const tabs = [['use', 'Credit use'], ['pay', 'Payments']].map(([id, label]) => ({ label, on: String(s.tab === id), pick: () => this.setState({ tab: id }),
+      style: 'min-height:40px;padding:0 16px;border-radius:999px;cursor:pointer;font:800 14px Nunito,sans-serif;' + (s.tab === id ? 'border:2px solid #2E7D32;background:#E3F5E5;color:#1B5E20' : 'border:2px solid #F1DCCB;background:#fff;color:#4a4362') }));
+    const row = (date, book, what, amt) => ({ date, book, what, amt, amtStyle: 'text-align:right;font-weight:800;white-space:nowrap;color:' + (amt.startsWith('+') ? '#1B5E20' : '#2b2540') });
+    const uses = [
+      row('Today', 'The Hen Who Shared Her Bread', 'Changed picture · page 5', '−[N]'),
+      row('Today', 'The Hen Who Shared Her Bread', 'Draft pictures · 12 pages', '−[N]'),
+      row('Today', 'The Hen Who Shared Her Bread', 'Cast sheet · The Cat (redraw)', '−[N]'),
+      row('Today', 'The Hen Who Shared Her Bread', 'Cast sheets · 5', '−[N]'),
+      row('24 Nov', '—', 'Bought Medium pack', '+[N]'),
+      row('3 Nov', 'Three Little Pigs Go Camping', 'Print-quality PDF', '−[N]'),
+      row('1 Nov', '—', 'Starting credits', '+[N]')
+    ];
+    return { packs, tabs, uses, isUse: s.tab === 'use', isPay: s.tab === 'pay' };
+  }
+}
+</script>
+</body>
+</html>
